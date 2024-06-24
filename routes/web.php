@@ -15,7 +15,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    
+    Route::prefix('/products')->name('products.')->group(function () {
+        Route::get('/', \App\Http\Controllers\Product\ProductListController::class)->name('list');
+    });
 });
 
 Route::middleware('auth')->group(function () {
