@@ -17,7 +17,7 @@ class ProductListController extends Controller
         try {
             $products = Product::paginate(5);
 
-            return view('layouts.admin.products', compact('products'));
+            return view('layouts.admin.products.list', compact('products'));
         } catch (\Exception $e) {
             return abort(500, $e->getMessage());
         }

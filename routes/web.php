@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Product\ProductListController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +18,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     })->name('dashboard');
 
     Route::prefix('/products')->name('products.')->group(function () {
-        Route::get('/', \App\Http\Controllers\Product\ProductListController::class)->name('list');
+        Route::get('/', ProductListController::class)->name('list');
+        Route::get('/create', [ProductController::class, 'create'])->name('create');
     });
 });
 
