@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description');
-            $table->float('price');
+            $table->integer('price');
             $table->string('image');
             $table->integer('stock');
             $table->softDeletes();
